@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_all_points.c                                  :+:      :+:    :+:   */
+/*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 09:24:00 by smatthes          #+#    #+#             */
-/*   Updated: 2023/10/19 13:27:32 by smatthes         ###   ########.fr       */
+/*   Created: 2023/10/06 10:38:48 by smatthes          #+#    #+#             */
+/*   Updated: 2023/11/09 14:36:56 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#ifndef PIPEX_H
+# define PIPEX_H
 
-void	free_point_coll(t_point_coll *point_coll)
-{
-	free(point_coll->points);
-}
+# include "lib_main.h"
+
+#endif
