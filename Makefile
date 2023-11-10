@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/11/09 14:51:50 by smatthes         ###   ########.fr        #
+#    Updated: 2023/11/10 14:41:07 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,14 @@ PATHOBJ = build/obj/
 
 VPATH = $(PATHSRC) $(INCLUDEPATH)
 
-SRC = 	main.c 
+SRC = 	main.c \
+		process_main.c \
+		process_cmd1.c \
+		process_cmd2.c \
+		utils.c \
+		free.c \
+		handle_args.c \
+		print_pipex_data.c
 		
 OBJFNAME = $(SRC:.c=.o)
 OBJ = $(patsubst %,$(PATHOBJ)%,$(OBJFNAME))

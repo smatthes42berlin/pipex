@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/26 15:04:01 by smatthes          #+#    #+#              #
-#    Updated: 2023/10/19 16:26:44 by smatthes         ###   ########.fr        #
+#    Updated: 2023/11/10 14:26:28 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRC =	ft_atoi.c \
 		ft_putendl_fd.c \
 		ft_strdup.c \
 		ft_str_n_dup.c \
+		ft_str_n_dup_int.c \
 		ft_strmapi.c \
 		ft_tolower.c \
 		ft_isalpha.c \
@@ -52,6 +53,8 @@ SRC =	ft_atoi.c \
 		ft_putstr_fd.c \
 		ft_strjoin.c \
 		ft_str_n_join.c \
+		ft_str_n_join_int.c \
+		ft_join_n_str.c \
 		ft_lstadd_back.c \
 		ft_lstclear.c \
 		ft_lstiter.c \

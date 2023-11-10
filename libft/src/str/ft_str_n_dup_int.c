@@ -1,22 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_str_arr_null.c                               :+:      :+:    :+:   */
+/*   ft_str_n_dup_int.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 14:27:08 by smatthes          #+#    #+#             */
-/*   Updated: 2023/11/10 09:16:20 by smatthes         ###   ########.fr       */
+/*   Created: 2023/05/07 09:52:03 by smatthes          #+#    #+#             */
+/*   Updated: 2023/11/10 14:34:59 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./lib_main.h"
+#include "lib_main.h"
 
-void	print_str_arr_null(char **arr)
+int	ft_str_n_dup_int(const char *s, int n, char **res)
 {
-	while (*arr)
+	size_t	str_len;
+	int		i;
+
+	i = 0;
+	*res = NULL;
+	if (!s)
+		return (1);
+	if (n == 0)
 	{
-		ft_printf_fd(2, "%s\n", *arr);
-		arr++;
+		str_len = ft_strlen(s);
+		n = str_len + 1;
 	}
+	*res = malloc((n) * sizeof(**res));
+	if (!(*res))
+		return (-1);
+	while (s[i] && i < n - 1)
+	{
+		(*res)[i] = s[i];
+		i++;
+	}
+	(*res)[i] = '\0';
+	return (1);
 }
