@@ -17,4 +17,4 @@
 - before doing anything, check if files are openable, permissions, command with access
 
 - check that it hangs with /dev/urandom (see slack)
-
+- Special edge cases: /dev/urandom and /dev/stdin

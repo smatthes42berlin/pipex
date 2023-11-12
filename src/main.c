@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:07:51 by smatthes          #+#    #+#             */
-/*   Updated: 2023/11/10 14:58:24 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/11/12 16:58:56 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,49 +38,32 @@
 // protect wait pid (could return -1)
 
 //  ./pipex infile "grep a1" "wc -w" outfile
+
+// error code 1 -> no such file or directory
+// error code 127 -> command not found
+
 int	main(int argc, char *argv[], char *envp[])
 {
-	t_pipex_data data;
+	t_pipex_data	data;
 
 	if (handle_args(&data, argc, argv, envp) == -1)
-		return (1);
-	print_pipex_data(&data);
-	free_args_handling(&data);
-
-	// // handle opening problem in child
-	// if (pipe(data.fd_pipe) == -1)
-	// {
-	// 	perror(strerror(errno));
-	// 	perror("pipe could not be opened!\n");
-	// 	return (3);
-	// }
-	// data.child_1_pid = fork();
-	// if (data.child_1_pid == -1)
-	// {
-	// 	perror(strerror(errno));
-	// 	perror("child could not be created!\n");
-	// 	return (4);
-	// }
-	// if (data.child_1_pid == 0)
-	// {
-	// 	process_cmd1(&data);
-	// }
-	// else
-	// {
-	// 	data.child_2_pid = fork();
-	// 	if (data.child_2_pid == -1)
-	// 	{
-	// 		perror(strerror(errno));
-	// 		perror("child could not be created!\n");
-	// 		return (4);
-	// 	}
-	// 	if (data.child_2_pid == 0)
-	// 	{
-	// 		process_cmd2(&data);
-	// 	}
-	// 	else
-	// 	{
-	// 		return (process_main(&data));
-	// 	}
-	// }
+		exit(1);
+	if (pipe(data.fd_pipe) == -1)
+		clean_exit_error(&data, 1, "");
+	data.child_1_pid = fork();
+	if (data.child_1_pid == -1)
+		clean_exit_error(&data, 1, "");
+	if (data.child_1_pid == 0)
+		process_cmd1(&data);
+	else
+	{
+		data.child_2_pid = fork();
+		if (data.child_2_pid == -1)
+			clean_exit_error(&data, 1, "");
+		if (data.child_2_pid == 0)
+			process_cmd2(&data);
+		else
+			process_main(&data);
+	}
+	return (0);
 }

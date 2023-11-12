@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 07:52:16 by smatthes          #+#    #+#             */
-/*   Updated: 2023/11/10 15:05:40 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/11/12 16:15:43 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,30 +42,27 @@ int	get_path(char *envp[], char ***path)
 	return (1);
 }
 
-int	check_cmd_access(t_pipex_data *data)
+int	check_cmd_access(t_pipex_data *data, char **cmd_arg, char **exec_path)
 {
 	int		i;
 	char	*path;
 	int		status;
 
-	// check file direct access first
-	data->exec_path_1 = NULL;
+	*exec_path = NULL;
 	i = 0;
-	if (access(data->cmd_arg_1[0], X_OK) == 0)
+	if (access(cmd_arg[0], X_OK) == 0)
 	{
-		data->exec_path_1 = data->cmd_arg_1[0];
-		return (1);
+		status = ft_str_n_dup_int(cmd_arg[0], 0, exec_path);
+		return (status);
 	}
 	while (data->path[i])
 	{
-		status = ft_join_n_str(&path, 3, data->path[i], "/", data->cmd_arg_1[0]);
+		status = ft_join_n_str(&path, 3, data->path[i], "/", cmd_arg[0]);
 		if (status == -1)
 			return (-1);
-		ft_printf_fd(2, "%s\n", data->cmd_arg_1[0]);
-		ft_printf_fd(2, "%s\n", path);
 		if (access(path, X_OK) == 0)
 		{
-			data->exec_path_1 = path;
+			*exec_path = path;
 			break ;
 		}
 		free(path);

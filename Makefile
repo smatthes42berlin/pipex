@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/11/10 14:41:07 by smatthes         ###   ########.fr        #
+#    Updated: 2023/11/12 15:44:47 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ SRC = 	main.c \
 		process_cmd2.c \
 		utils.c \
 		free.c \
+		exit.c \
 		handle_args.c \
 		print_pipex_data.c
 		

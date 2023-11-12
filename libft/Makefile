@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 14:58:39 by smatthes          #+#    #+#              #
-#    Updated: 2023/10/15 14:49:11 by smatthes         ###   ########.fr        #
+#    Updated: 2023/11/12 17:08:05 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,12 +80,12 @@ all: $(NAME)
 # s add index to archive or update if exists
 # r insert files member into archive, replace previously added members with same name
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $^
+	@ ar rcs $(NAME) $^
 
 # create object files from source files
 # any path in VPATH is searched for source files
 $(PATHOBJ)%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@ $(CC) $(CFLAGS) -c $< -o $@
 
 # grab results from results files
 test: testclean all $(RESULTS)
@@ -123,17 +123,17 @@ testunit: $(PATHOBJ)unity.o
 	done
 
 clean: testclean
-	$(RM) $(OBJ)
+	@ $(RM) $(OBJ)
 
 testclean:
-	$(RM) $(OBJTEST)
-	$(RM) $(PATHRES)test_results.txt
-	$(RM) $(RESULTS)
-	$(RM) $(TESTEXE)
-	$(RM) $(PATHOBJ)unity.o
+	@ $(RM) $(OBJTEST)
+	@ $(RM) $(PATHRES)test_results.txt
+	@ $(RM) $(RESULTS)
+	@ $(RM) $(TESTEXE)
+	@ $(RM) $(PATHOBJ)unity.o
 
 fclean: clean
-	$(RM) $(NAME)
+	@ $(RM) $(NAME)
 
 re: fclean all
 

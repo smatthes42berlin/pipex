@@ -6,34 +6,31 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 07:52:16 by smatthes          #+#    #+#             */
-/*   Updated: 2023/11/10 10:32:47 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/11/12 16:57:41 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	process_cmd2(t_pipex_data *data)
+void	process_cmd2(t_pipex_data *data)
 {
-	// int	fd_out;
-	close(data->fd_pipe[1]);
-	return (1);
-	// close(fd_pipe[1]);
-	// fd_out = open(argv[3], O_WRONLY);
-	// if (dup2(fd_pipe[0], STDIN_FILENO) == -1)
-	// {
-	// 	perror("problem redirecting file descriptor in!\n");
-	// 	return (2);
-	// };
-	// if (dup2(fd_out, STDOUT_FILENO) == -1)
-	// {
-	// 	perror("problem redirecting file descriptor out!\n");
-	// 	return (2);
-	// };
-	// return (2);
-	// args[] = {"/usr/bin/cat", NULL};
-	// env[] = {NULL};
-	// close(fd_out);
-	// close(fd_pipe[0]);
-	// close(fd_pipe[1]);
-	// execve("/usr/bin/cat", args, env);
+	int	fd_out;
+
+	if (close(data->fd_pipe[1]) == -1)
+		clean_exit_error(data, 1, "");
+	fd_out = open(data->outfile, O_WRONLY | O_CREAT | O_TRUNC,
+			S_IRWXU | S_IRWXG | S_IRWXO);
+	if (fd_out == -1)
+		clean_exit_error(data, 1, data->outfile);
+	if (dup2(data->fd_pipe[0], STDIN_FILENO) == -1)
+		clean_exit_error(data, 1, "");
+	if (dup2(fd_out, STDOUT_FILENO) == -1)
+		clean_exit_error(data, 1, "");
+	if (!data->exec_path_2)
+		clean_exit_127(data, data->cmd_arg_2[0]);
+	else
+	{
+		execve(data->exec_path_2, data->cmd_arg_2, data->envp);
+		clean_exit_error(data, 1, "");
+	}
 }
