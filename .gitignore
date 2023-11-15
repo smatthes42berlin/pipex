@@ -1,5 +1,6 @@
 
 tester_github/
 **/*.o
+**/*.out
 
 1*/

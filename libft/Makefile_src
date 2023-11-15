@@ -6,7 +6,7 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/26 15:04:01 by smatthes          #+#    #+#              #
-#    Updated: 2023/11/10 14:26:28 by smatthes         ###   ########.fr        #
+#    Updated: 2023/11/15 11:16:18 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRC =	ft_atoi.c \
 		ft_split_str.c \
 		ft_split_free_error.c \
 		ft_split_num_substr.c \
+		ft_split_num_substr_sq.c \
+		ft_split_single_quotes.c \
 		ft_strlcat.c \
 		ft_strrchr.c \
 		ft_bzero.c \

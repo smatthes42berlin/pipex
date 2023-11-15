@@ -1,0 +1,8 @@
+2c2
+< 64 bytes from ham02s21-in-f14.1e100.net (142.250.181.206): icmp_seq=1 ttl=118 time=8.53 ms
+---
+> 64 bytes from ham02s21-in-f14.1e100.net (142.250.181.206): icmp_seq=1 ttl=118 time=8.62 ms
+6c6
+< rtt min/avg/max/mdev = 8.531/8.531/8.531/0.000 ms
+---
+> rtt min/avg/max/mdev = 8.621/8.621/8.621/0.000 ms

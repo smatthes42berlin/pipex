@@ -6,12 +6,19 @@
 #    By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/12 18:10:09 by smatthes          #+#    #+#              #
-#    Updated: 2023/09/12 18:10:54 by smatthes         ###   ########.fr        #
+#    Updated: 2023/11/15 11:29:56 by smatthes         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 make
 
 cc main.c -L. -lft -I./include
+
+if [ $# -eq 0 ]; then
+    ./a.out
+else
+    valgrind ./a.out
+fi
+
 
 ./a.out

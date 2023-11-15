@@ -7,6 +7,7 @@
     "files.associations": {
         "math.h": "c",
         "lib_main.h": "c",
-        "included_ext_libs.h": "c"
+        "included_ext_libs.h": "c",
+        "stdio.h": "c"
     }
 }

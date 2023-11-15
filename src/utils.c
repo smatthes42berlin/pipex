@@ -6,7 +6,7 @@
 /*   By: smatthes <smatthes@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 07:52:16 by smatthes          #+#    #+#             */
-/*   Updated: 2023/11/12 16:15:43 by smatthes         ###   ########.fr       */
+/*   Updated: 2023/11/15 11:32:14 by smatthes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	split_cmd_args(char *cmd_args_str, char ***cmd_args_arr)
 {
-	*cmd_args_arr = ft_split(cmd_args_str, ' ');
+	// *cmd_args_arr = ft_split(cmd_args_str, ' ');
+	*cmd_args_arr = ft_split_single_quotes(cmd_args_str, ' ');
 	if (!(*cmd_args_arr))
 		return (-1);
 	return (1);

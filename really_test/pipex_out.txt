@@ -1,0 +1,6 @@
+PING google.com (142.250.181.206) 56(84) bytes of data.
+64 bytes from ham02s21-in-f14.1e100.net (142.250.181.206): icmp_seq=1 ttl=118 time=8.61 ms
+
+--- google.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 8.608/8.608/8.608/0.000 ms

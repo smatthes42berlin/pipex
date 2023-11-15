@@ -1,0 +1,14 @@
+==77052== Memcheck, a memory error detector
+==77052== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==77052== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==77052== Command: ../pipex infile4.txt cat ping\ google.com\ -c\ 1 pipex_out.txt
+==77052== 
+==77052== 
+==77052== HEAP SUMMARY:
+==77052==     in use at exit: 0 bytes in 0 blocks
+==77052==   total heap usage: 48 allocs, 48 frees, 756 bytes allocated
+==77052== 
+==77052== All heap blocks were freed -- no leaks are possible
+==77052== 
+==77052== For lists of detected and suppressed errors, rerun with: -s
+==77052== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
